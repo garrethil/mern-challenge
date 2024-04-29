@@ -4,6 +4,7 @@ const typeDefs = `
         username: String
         email: String
         password: String
+        bookCount: Int
         savedBooks: [Book]!
     }
     
@@ -23,7 +24,6 @@ const typeDefs = `
     }
 
     input BookData {
-        _id: ID
         authors: [String]
         bookId: String!
         image: String
@@ -38,8 +38,8 @@ const typeDefs = `
 
     type mutations {
         login(email: String!, password: String!): Auth
-        addUser(username: String!, email: String!, password: String!):User
-        saveBook(book: BookData):User
-        removeBook(bookId: String!):User
+        addUser(username: String!, email: String!, password: String!): User
+        saveBook(book: BookData!): User
+        removeBook(bookId: String!): User
     }
     `
